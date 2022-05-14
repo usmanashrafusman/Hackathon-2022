@@ -18,6 +18,7 @@ function DatePicker(props) {
             value={props.value}
             variant="standard"
             type="date"
+            required={props.required}
             inputProps={{ min: disablePastDate() }}
         />
     );
