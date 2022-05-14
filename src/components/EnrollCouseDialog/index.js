@@ -3,9 +3,17 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+import SelectBox from '../forms/SelectBox';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Select, MenuItem } from '@mui/material';
+import Input from '../forms/Input';
+
+const cityOptions = [{
+  value: "karachi",
+  label: "Karachi"
+}, {
+  value: "hyderabad",
+  label: "Hyderabad"
+}]
 
 const EnrollCouseDialog = ({ isOpen, handleClose }) => {
   return (
@@ -17,23 +25,12 @@ const EnrollCouseDialog = ({ isOpen, handleClose }) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
+          Course Enroll Form
         </DialogTitle>
         <DialogContent>
-          <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            // value={age}
-            // onChange={handleChange}
-            label="Age"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+          <SelectBox labelTag="City" placeholder="Select City" name="city" options={cityOptions} />
+          <SelectBox labelTag="Course" placeholder="Select Course" name="courseTitle" options={cityOptions} />
+          <Input labelTag="Your Name" placeholder="Your Name" name="name"/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
