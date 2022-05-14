@@ -6,7 +6,10 @@ import DialogContent from '@mui/material/DialogContent';
 import SelectBox from '../forms/SelectBox';
 import DialogTitle from '@mui/material/DialogTitle';
 import Input from '../forms/Input';
+
 import { Grid } from '@mui/material';
+import DatePicker from '../forms/DatePicker';
+
 
 const cityOptions = [{
   value: "karachi",
@@ -44,13 +47,16 @@ const EnrollCouseDialog = ({ isOpen, handleClose }) => {
               <Input labelTag="Email" type="email" placeholder="Email" name="email" />
             </Grid>
             <Grid item md={4}>
-              <Input labelTag="Phone" type="number" placeholder="Phone" name="phone" />
+              <Input labelTag="Phone" type="number"name="phone" />
             </Grid>
             <Grid item md={4}>
-              <Input labelTag="CNIC" type="number" placeholder="CNIC" name="CNIC" />
+              <Input labelTag="CNIC" type="number" name="CNIC" />
             </Grid>
             <Grid item md={4}>
-              <Input labelTag="Father CNIC" type="number" placeholder="Father CNI" name="fCNIC" />
+              <Input labelTag="Father CNIC" type="number"  name="fCNIC" />
+            </Grid>
+            <Grid item md={4}>
+            <DatePicker/>
             </Grid>
           </Grid>
         </DialogContent>
