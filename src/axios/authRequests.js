@@ -3,7 +3,7 @@ export function authSignUp() {
         url: `auth/signin`,
         method: "POST",
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `${token}`,
         },
     };
 }

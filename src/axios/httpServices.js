@@ -2,10 +2,9 @@
 
 import axios from "axios";
 import { makeUseAxios, configure } from "axios-hooks";
-import { Config } from "config";
 
 export const instance = axios.create({
-    baseURL: "http://localhost/5000/",
+    baseURL: "http://192.168.120.64:8000/",
     timeout: 120000, // 120 seconds
 
     headers: {

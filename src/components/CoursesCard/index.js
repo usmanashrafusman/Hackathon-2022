@@ -1,6 +1,8 @@
 import { Card, CardActions, CardContent, Button, Typography, Grid } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getCourses } from '../../axios/courseRequests';
+import useAxios from '../../axios/httpServices';
 import EnrollCouseDialog from '../EnrollCouseDialog';
 const CourseCard = () => {
     const navigate = useNavigate();
@@ -11,7 +13,17 @@ const CourseCard = () => {
     const handleOpen = () => {
         setIsOpen(true)
     }
+    const [{ data, loading, error }, executegetCourses] = useAxios(getCourses(), {
+        manual: true
+    })
+    useEffect(() => {
+        executegetCourses().then((res) => {
+            console.log(res.data)
+        }).catch((err) => {
+            console.log(err)
+        })
 
+    }, [])
     return (
         <>
             <EnrollCouseDialog isOpen={isOpen} handleClose={handleClose} />
