@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Auth from "./layout/Auth";
+import { routeCreator } from "./helpers/routeHelper";
+import routes from "./routing";
+import Admin from "./layout/Admin";
+import PageNotFound from "./view/Common/PageNotFound";
+import User from "./layout/User";
 
 function App() {
+  const authRoutes = routes.authRoutes;
+  const userRoutes = routes.userRoutes;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/auth" element={<Auth />}>
+          {routeCreator(authRoutes, false)}
+        </Route>
+        <Route path="/admin" element={<Admin />}>
+          {routeCreator(authRoutes, false)}
+        </Route>
+        <Route path="/user" element={<User />}>
+          {routeCreator(userRoutes, false)}
+        </Route>
+        <Route
+          exact
+          path="/"
+          element={<Navigate to="/user/signin" replace />}
+        />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </>
   );
 }
 
