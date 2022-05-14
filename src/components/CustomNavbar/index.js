@@ -207,7 +207,7 @@ function DashboardNavbar({ absolute, light, isMini, isAdmin }) {
             <Button variant="contained" color="secondary">Sign Up</Button>
 
           </IconButton>
-          <IconButton onClick={()=>{navigate("/user/courses")}}>
+          <IconButton onClick={() => { navigate("/user/courses") }}>
             <Button variant="contained" color="warning">New Courses</Button>
           </IconButton>
         </Box>
